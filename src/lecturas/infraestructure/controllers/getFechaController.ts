@@ -1,14 +1,14 @@
+import { GetTotalUseCase } from "../../app/getFechaUseCase";
 import {Request, Response} from "express";
-import { GetDataUseCase } from "../../app/getDataUseCase";
 
-export class GetDataController{
-    constructor(readonly getData: GetDataUseCase){}
+export class GetTotalController{
+    constructor(readonly getData: GetTotalUseCase){}
     async run ( req: Request, res: Response){
         try {
-            const {fecha,correo_cliente}:any = req.query;
-            console.log(fecha,correo_cliente);
+            const {fechaInicio, fechaFin,correo_cliente}:any = req.query;
+            console.log(fechaInicio, fechaFin,correo_cliente);
             
-            const searchedData = await this.getData.run(fecha, correo_cliente);
+            const searchedData = await this.getData.run(fechaInicio, fechaFin, correo_cliente);
             if (searchedData) {
                 res.status(200).send({
                 status: "success",
