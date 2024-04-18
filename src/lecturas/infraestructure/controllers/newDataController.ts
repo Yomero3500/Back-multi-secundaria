@@ -7,6 +7,10 @@ export class NewDataController{
         try {
             const {tipo, valor, correo_cliente} = req.body;
             const createdData = await this.newData.run(tipo, valor, correo_cliente);
+            console.log(tipo,valor,correo_cliente);
+            console.log(createdData);
+            
+            
             if (createdData) {
                 res.status(200).send({
                     status: "success",
