@@ -1,6 +1,7 @@
 import { io } from "socket.io-client";
 import { ISocket } from "../../domain/services/SocketIO";
 
+
 export class SocketService implements ISocket   {
     async sendMessage(message: any): Promise<boolean | null> {
         try {

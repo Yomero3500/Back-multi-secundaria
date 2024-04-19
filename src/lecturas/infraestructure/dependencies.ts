@@ -16,7 +16,7 @@ export const nodeMailerService = new NodeMailerService();
 export const getDataUseCase = new GetDataUseCase(sqlizeRepo, serviceMesssage)
 export const getDataController = new GetDataController(getDataUseCase)
 
-export const newDataUseCase = new NewDataUseCase(sqlizeRepo, serviceMesssage)
+export const newDataUseCase = new NewDataUseCase(sqlizeRepo, serviceMesssage, nodeMailerService)
 export const newDataController = new NewDataController(newDataUseCase)
 
 export const getFechaUseCase = new GetTotalUseCase(sqlizeRepo, serviceMesssage)

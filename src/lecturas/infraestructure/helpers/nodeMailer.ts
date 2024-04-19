@@ -26,18 +26,14 @@ export class NodeMailerService implements INodeMailer {
     return true;
   }
 
-  async sendPaas(email: string, password: string): Promise<boolean> {
+  async sendPaas(email: string,): Promise<boolean> {
     try {
-      console.log(password);
-      
       const info = await transporter.sendMail({
         from: `PowerWatch`,
         to: email,
-        subject: `Correo de recuperación`,
+        subject: `Correo de advertencia`,
         html: `
-        <b>Bienvenido, se ha solicitado un cambio de constraseña</b><br/>
-        <b>Su nueva contraseña es: ${password}</b><br/>
-        <b>Por favor cambie su contraseña por alguna que recuerde a la brevedad</b>`,
+        <b>!!!IMPORTANTE!!!</b></br><b>Se ha detectado una anomalia en la red electrica</b>`,
       });
       if (info) {
         console.log("email enviado");
