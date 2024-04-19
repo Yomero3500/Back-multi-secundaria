@@ -5,7 +5,7 @@ export class SocketService implements ISocket   {
     async sendMessage(message: any): Promise<boolean | null> {
         try {
             const url:any = process.env.URL;
-            const socket = io("http://localhost:3005");
+            const socket = io("https://back-multi-socketserver.onrender.com");
             const tipo= message.tipo;
             const valor= message.valor;
             const user = message.correo_cliente;
