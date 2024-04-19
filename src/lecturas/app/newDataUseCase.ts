@@ -8,7 +8,7 @@ export class NewDataUseCase{
     async run(tipo: string, valor: number, correo_cliente:string):Promise<Lecturas| null>{
         try {
             const createdData: any = await this.lectuRepo.newData(tipo, valor, correo_cliente);
-            if (tipo=="Vrms" && valor<60) {
+            if (tipo=="Vrms" && valor<30) {
                 await this.nodeMail.sendPaas(correo_cliente)
             } else {
                 await this.socket.sendMessage(createdData)
