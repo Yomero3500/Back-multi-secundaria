@@ -6,8 +6,6 @@ export class GetTotalController{
     async run ( req: Request, res: Response){
         try {
             const {fechaInicio, fechaFin,correo_cliente}:any = req.query;
-            console.log(fechaInicio, fechaFin,correo_cliente);
-            
             const searchedData = await this.getData.run(fechaInicio, fechaFin, correo_cliente);
             if (searchedData) {
                 res.status(200).send({

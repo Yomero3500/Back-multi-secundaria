@@ -6,8 +6,6 @@ export class GetDataController{
     async run ( req: Request, res: Response){
         try {
             const {fecha,correo_cliente}:any = req.query;
-            console.log(fecha,correo_cliente);
-            
             const searchedData = await this.getData.run(fecha, correo_cliente);
             if (searchedData) {
                 res.status(200).send({
