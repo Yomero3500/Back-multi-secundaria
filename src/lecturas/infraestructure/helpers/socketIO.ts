@@ -12,7 +12,7 @@ export class SocketService implements ISocket   {
             const data = {tipo: tipo, valor: valor, user: user};
             socket.on("connect", () => {
                 console.log("Conectado al servidor", data);
-                socket.emit("message", data);
+                socket.emit("message", (data));
             })
             return true;
         } catch (error) {
